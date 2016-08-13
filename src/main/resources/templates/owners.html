@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Owners</title>
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <h1>Owners</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody th:each="owner : ${owners}">
+            <tr>
+                <td th:text="${owner.name()}">Robert</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
