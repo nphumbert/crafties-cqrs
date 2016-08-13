@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pets</title>
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <h1>Pets</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody th:each="pet : ${pets}">
+            <tr>
+                <td th:text="${pet.name()}">Robert</td>
+                <td th:text="#{${'pet.type.' + pet.type()}}">Dog</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

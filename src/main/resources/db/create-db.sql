@@ -1,0 +1,4 @@
+CREATE TABLE pet (
+    id NUMBER(19,0), name VARCHAR2(255), type VARCHAR2(255),
+    PRIMARY KEY (id)
+);

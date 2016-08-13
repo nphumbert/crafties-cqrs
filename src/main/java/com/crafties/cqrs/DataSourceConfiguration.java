@@ -12,7 +12,9 @@ public class DataSourceConfiguration {
 
     @Bean
     public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
+        return new EmbeddedDatabaseBuilder()
+                .addScript("db/create-db.sql")
+                .addScript("db/insert-data.sql")
+                .setType(EmbeddedDatabaseType.H2).build();
     }
-
 }

@@ -1,0 +1,10 @@
+INSERT INTO pet (id, name, type) VALUES (1, 'Norman', 'CAT');
+INSERT INTO pet (id, name, type) VALUES (2, 'Sprit', 'DOG');
+INSERT INTO pet (id, name, type) VALUES (3, 'Oscar', 'DOG');
+INSERT INTO pet (id, name, type) VALUES (4, 'Leon', 'DOG');
+INSERT INTO pet (id, name, type) VALUES (5, 'Berlioz', 'CAT');
+INSERT INTO pet (id, name, type) VALUES (6, 'Lafayette', 'DOG');
+INSERT INTO pet (id, name, type) VALUES (7, 'Lady', 'DOG');
+INSERT INTO pet (id, name, type) VALUES (8, 'Toulouse', 'CAT');
+INSERT INTO pet (id, name, type) VALUES (9, 'Scat cat', 'CAT');
+COMMIT;
