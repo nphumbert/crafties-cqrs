@@ -12,12 +12,14 @@
             <tr>
                 <th>Name</th>
                 <th>Type</th>
+                <th>Owner</th>
             </tr>
         </thead>
         <tbody th:each="pet : ${pets}">
             <tr>
                 <td th:text="${pet.name()}">Robert</td>
                 <td th:text="#{${'pet.type.' + pet.type()}}">Dog</td>
+                <td th:text="${pet.owner().name()}">Lucie</td>
             </tr>
         </tbody>
     </table>

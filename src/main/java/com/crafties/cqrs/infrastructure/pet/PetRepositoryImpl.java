@@ -1,5 +1,7 @@
 package com.crafties.cqrs.infrastructure.pet;
 
+import com.crafties.cqrs.model.owner.Owner;
+import com.crafties.cqrs.model.owner.OwnerId;
 import com.crafties.cqrs.model.pet.Pet;
 import com.crafties.cqrs.model.pet.PetId;
 import com.crafties.cqrs.model.pet.PetRepository;
@@ -24,8 +26,13 @@ public class PetRepositoryImpl implements PetRepository {
     @Override
     public List<Pet> findPets() {
         return new JdbcTemplate(dataSource).query(
-                "SELECT * FROM pet",
-                (rs, rowNum) -> new Pet(new PetId(rs.getLong("id")), rs.getString("name"), PetType.valueOf(rs.getString("type")))
+                "SELECT * FROM pet LEFT JOIN owner ON pet.owner_id = owner.id",
+                (rs, rowNum) -> new Pet(
+                        new PetId(rs.getLong("pet.id")),
+                        rs.getString("pet.name"),
+                        PetType.valueOf(rs.getString("pet.type")),
+                        new Owner(new OwnerId(rs.getLong("owner.id")), rs.getString("owner.name"))
+                )
         );
     }
 }
