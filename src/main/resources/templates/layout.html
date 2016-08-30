@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+    <section>
+        <ul>
+            <li><a th:classappend="${navigationItem == 'home'} ? active" th:href="@{/}" href="index.html">Home</a></li>
+            <li><a th:classappend="${navigationItem == 'pets'} ? active" th:href="@{/pets}" href="pets.html">Pets</a></li>
+            <li><a th:classappend="${navigationItem == 'owners'} ? active" th:href="@{/owners}" href="owners.html">Owners</a></li>
+        </ul>
+    </section>
+
+    <section layout:fragment="content"></section>
+</body>
+</html>

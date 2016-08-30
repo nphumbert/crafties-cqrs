@@ -20,7 +20,7 @@ public class OwnersController {
     @RequestMapping(value = "/owners", method = RequestMethod.GET)
     public String getOwners(final Model model) {
         model.addAttribute("owners", ownerService.findOwners());
+        model.addAttribute("navigationItem", "owners");
         return "owners";
     }
-
 }

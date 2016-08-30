@@ -1,8 +1,39 @@
 body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+
+/* Navigation bar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #617798;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #435166;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 14px 16px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+li a:hover, li a.active {
+    background-color: #435166;
 }
 
 /* Table */

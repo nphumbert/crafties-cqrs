@@ -26,19 +26,22 @@ public class PetController {
 
     @RequestMapping(value = "/pets/new", method = RequestMethod.GET)
     public String getPetForm(final Model model) {
-        model.addAttribute("owners", ownerService.findOwners());
-        model.addAttribute("createPetCommand", new CreatePetCommand());
-        return "pet";
+        return prepareModelAndView(new CreatePetCommand(), model);
     }
 
     @RequestMapping(value = "/pets/new", method = RequestMethod.POST)
     public String newPet(@Valid CreatePetCommand command, BindingResult bindingResult, final Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("createPetCommand", command);
-            model.addAttribute("owners", ownerService.findOwners());
-            return "pet";
+            return prepareModelAndView(command, model);
         }
         petService.create(command.getName(), command.getType(), new OwnerId(command.getOwnerId()));
         return "redirect:/pets";
+    }
+
+    private String prepareModelAndView(@Valid CreatePetCommand command, Model model) {
+        model.addAttribute("createPetCommand", command);
+        model.addAttribute("navigationItem", "pets");
+        model.addAttribute("owners", ownerService.findOwners());
+        return "pet";
     }
 }

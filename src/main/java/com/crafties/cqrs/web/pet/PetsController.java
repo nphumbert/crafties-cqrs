@@ -20,6 +20,7 @@ public class PetsController {
     @RequestMapping(value = "/pets", method = RequestMethod.GET)
     public String getPets(final Model model) {
         model.addAttribute("pets", petService.findPets());
+        model.addAttribute("navigationItem", "pets");
         return "pets";
     }
 }

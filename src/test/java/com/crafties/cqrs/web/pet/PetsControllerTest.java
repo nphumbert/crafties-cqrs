@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -42,6 +43,7 @@ public class PetsControllerTest {
         mockMvc.perform(get("/pets"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("pets"))
+                .andExpect(model().attribute("navigationItem", is("pets")))
                 .andExpect(model().attribute("pets", contains(lafayette, berlioz)));
     }
 }

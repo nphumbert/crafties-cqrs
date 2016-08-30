@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static java.util.Arrays.asList;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -45,6 +46,7 @@ public class PetControllerTest {
         mockMvc.perform(get("/pets/new"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("pet"))
+                .andExpect(model().attribute("navigationItem", is("pets")))
                 .andExpect(model().attribute("owners", contains(robert, laure)));
     }
 
