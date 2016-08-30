@@ -115,3 +115,16 @@ select {
     font-size: 0.8em;
     margin-left: 85px;
 }
+
+/* Button link */
+.button-link {
+    margin-top: 40px;
+}
+
+.button-link a {
+    padding: 9px 15px;
+    background: #617798;
+    font-size: 1em;
+    color: #ffffff;
+    text-decoration: none;
+}
