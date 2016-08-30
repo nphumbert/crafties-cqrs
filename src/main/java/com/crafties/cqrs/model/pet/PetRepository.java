@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface PetRepository {
     List<Pet> findPets();
+
+    void save(Pet pet);
 }

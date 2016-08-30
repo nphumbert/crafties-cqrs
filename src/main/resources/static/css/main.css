@@ -5,6 +5,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+/* Table */
 thead {
     font-size: 1.1em;
 	margin: 15px 0;
@@ -24,11 +25,62 @@ td, th {
 }
 
 th {
-    background: #F3F3F3;
+    background: #f3f3f3;
     font-weight: bold;
 }
 
 td {
-    background: #FAFAFA;
+    background: #fafafa;
 }
 
+/* Form */
+input {
+    padding: 9px;
+    border: solid 1px #e5e5e5;
+    width: 200px;
+    background: #ffffff;
+}
+
+input:hover, input:focus {
+    border-color: #c9c9c9;
+}
+
+form label {
+    color: #999999;
+    width: 80px;
+    display: inline-block;
+}
+
+form div {
+    margin-bottom: 9px;
+}
+
+button[type=submit] {
+    padding: 9px 15px;
+    background: #617798;
+    border: 0;
+    font-size: 1em;
+    color: #ffffff;
+    margin-top: 9px;
+    cursor: pointer;
+}
+
+.submit-button {
+   text-align: center;
+}
+
+select {
+   color: #555;
+   padding: 4px;
+   width: 220px;
+}
+
+.has-error input {
+    border-color: darkred;
+}
+
+.error-message {
+    color: darkred;
+    font-size: 0.8em;
+    margin-left: 85px;
+}

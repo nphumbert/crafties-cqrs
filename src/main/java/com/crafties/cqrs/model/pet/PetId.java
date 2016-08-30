@@ -1,5 +1,7 @@
 package com.crafties.cqrs.model.pet;
 
+import java.util.UUID;
+
 public class PetId {
     private final Long value;
 
@@ -20,5 +22,14 @@ public class PetId {
     @Override
     public int hashCode() {
         return value.hashCode();
+    }
+
+    public static PetId generate() {
+        return new PetId(UUID.randomUUID().getMostSignificantBits());
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
 }

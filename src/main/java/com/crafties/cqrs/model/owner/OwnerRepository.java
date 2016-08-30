@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface OwnerRepository {
     List<Owner> findOwners();
+
+    Owner find(OwnerId ownerId);
 }

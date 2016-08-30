@@ -4,16 +4,20 @@ import com.crafties.cqrs.model.owner.Owner;
 
 public class Pet {
 
-    private final PetId petId;
+    private final PetId id;
     private final String name;
     private final PetType type;
     private final Owner owner;
 
     public Pet(PetId petId, String name, PetType type, Owner owner) {
-        this.petId = petId;
+        this.id = petId;
         this.name = name;
         this.type = type;
         this.owner = owner;
+    }
+
+    public PetId id() {
+        return id;
     }
 
     public String name() {
@@ -35,7 +39,7 @@ public class Pet {
 
         Pet pet = (Pet) o;
 
-        if (!petId.equals(pet.petId)) return false;
+        if (!id.equals(pet.id)) return false;
         if (!name.equals(pet.name)) return false;
         return type == pet.type;
 
@@ -43,7 +47,7 @@ public class Pet {
 
     @Override
     public int hashCode() {
-        int result = petId.hashCode();
+        int result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + type.hashCode();
         return result;
@@ -52,7 +56,7 @@ public class Pet {
     @Override
     public String toString() {
         return "Pet{" +
-                "petId=" + petId +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", type=" + type +
                 ", owner=" + owner +

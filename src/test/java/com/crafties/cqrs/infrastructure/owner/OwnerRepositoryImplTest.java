@@ -35,4 +35,16 @@ public class OwnerRepositoryImplTest {
         assertThat(owners).containsExactly(new Owner(new OwnerId(1L), "Robert"), new Owner(new OwnerId(2L), "Laure"));
     }
 
+    @Test
+    public void should_find_owner() {
+        // given
+        OwnerRepository ownerRepository = new OwnerRepositoryImpl(datasource());
+
+        // when
+        Owner owner = ownerRepository.find(new OwnerId(1L));
+
+        // then
+        assertThat(owner).isEqualTo(new Owner(new OwnerId(1L), "Robert"));
+    }
+
 }
