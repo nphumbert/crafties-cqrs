@@ -42,9 +42,9 @@ public class PetServiceImplTest {
         Pet pet = petService.create("Norman", PetType.DOG, new OwnerId(1L));
 
         // then
-        assertThat(pet.name()).isEqualTo("Norman");
-        assertThat(pet.type()).isEqualTo(PetType.DOG);
-        assertThat(pet.owner()).isEqualTo(robert);
+        assertThat(pet.getName()).isEqualTo("Norman");
+        assertThat(pet.getType()).isEqualTo(PetType.DOG);
+        assertThat(pet.getOwner()).isEqualTo(robert);
         verify(petRepository).save(pet);
     }
 }

@@ -10,12 +10,12 @@ public class Owner {
         this.name = name;
     }
 
-    public String name() {
-        return name;
+    public OwnerId getId() {
+        return id;
     }
 
-    public OwnerId id() {
-        return id;
+    public String getName() {
+        return name;
     }
 
     @Override

@@ -23,7 +23,7 @@
             <div>
                 <label th:for="owner">Owner</label>
                 <select id="owner" th:field="*{ownerId}">
-                    <option th:each="owner : ${owners}" th:value="${owner.id()}" th:text="${owner.name()}">
+                    <option th:each="owner : ${owners}" th:value="${owner.id}" th:text="${owner.name}">
                         Robert
                     </option>
                 </select>

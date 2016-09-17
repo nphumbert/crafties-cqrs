@@ -16,19 +16,19 @@ public class Pet {
         this.owner = owner;
     }
 
-    public PetId id() {
+    public PetId getId() {
         return id;
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public PetType type() {
+    public PetType getType() {
         return type;
     }
 
-    public Owner owner() {
+    public Owner getOwner() {
         return owner;
     }
 

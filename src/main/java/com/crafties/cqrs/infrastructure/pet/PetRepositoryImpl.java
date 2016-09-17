@@ -40,7 +40,7 @@ public class PetRepositoryImpl implements PetRepository {
     public void save(Pet pet) {
         new JdbcTemplate(dataSource).update(
                 "INSERT INTO pet (id, name, type, owner_id) VALUES (?, ?, ?, ?)",
-                pet.id().toString(), pet.name(), pet.type().name(), pet.owner() == null ? null : pet.owner().id().toString()
+                pet.getId().toString(), pet.getName(), pet.getType().name(), pet.getOwner() == null ? null : pet.getOwner().getId().toString()
         );
     }
 

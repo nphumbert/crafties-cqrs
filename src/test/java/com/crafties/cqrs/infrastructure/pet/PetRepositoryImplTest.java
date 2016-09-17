@@ -28,7 +28,7 @@ public class PetRepositoryImplTest {
 
         // then
         assertThat(pets).hasSize(1);
-        assertThat(pets.get(0).owner()).isEqualTo(new Owner(new OwnerId(1L), "Lucie"));
+        assertThat(pets.get(0).getOwner()).isEqualTo(new Owner(new OwnerId(1L), "Lucie"));
     }
 
     @Test
