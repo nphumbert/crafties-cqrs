@@ -4,29 +4,18 @@ import com.crafties.cqrs.model.owner.Owner;
 import com.crafties.cqrs.model.owner.OwnerId;
 import com.crafties.cqrs.model.owner.OwnerRepository;
 import org.junit.Test;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-import javax.sql.DataSource;
 import java.util.List;
 
+import static com.crafties.cqrs.fixture.DataSourceBuilder.aDataSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OwnerRepositoryImplTest {
 
-    private DataSource datasource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .generateUniqueName(true)
-                .addScript("db/create-db.sql")
-                .addScript("owner/insert-owners.sql")
-                .build();
-    }
-
     @Test
     public void should_find_owners() {
         // given
-        OwnerRepository ownerRepository = new OwnerRepositoryImpl(datasource());
+        OwnerRepository ownerRepository = new OwnerRepositoryImpl(aDataSource().withDataScript("owner/insert-owners.sql").build());
 
         // when
         List<Owner> owners = ownerRepository.findOwners();
@@ -38,7 +27,7 @@ public class OwnerRepositoryImplTest {
     @Test
     public void should_find_owner() {
         // given
-        OwnerRepository ownerRepository = new OwnerRepositoryImpl(datasource());
+        OwnerRepository ownerRepository = new OwnerRepositoryImpl(aDataSource().withDataScript("owner/insert-owners.sql").build());
 
         // when
         Owner owner = ownerRepository.find(new OwnerId(1L));
