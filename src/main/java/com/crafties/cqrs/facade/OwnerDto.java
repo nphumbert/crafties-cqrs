@@ -3,13 +3,19 @@ package com.crafties.cqrs.facade;
 public class OwnerDto {
 
     private final String name;
+    private final Long numberOfPets;
 
-    public OwnerDto(String name) {
+    public OwnerDto(String name, Long numberOfPets) {
         this.name = name;
+        this.numberOfPets = numberOfPets;
     }
 
     public String getName() {
         return name;
+    }
+
+    public Long getNumberOfPets() {
+        return numberOfPets;
     }
 
     @Override
@@ -19,12 +25,15 @@ public class OwnerDto {
 
         OwnerDto ownerDto = (OwnerDto) o;
 
-        return name.equals(ownerDto.name);
+        if (!name.equals(ownerDto.name)) return false;
+        return numberOfPets.equals(ownerDto.numberOfPets);
 
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        int result = name.hashCode();
+        result = 31 * result + numberOfPets.hashCode();
+        return result;
     }
 }

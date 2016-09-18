@@ -30,8 +30,8 @@ public class OwnersControllerTest {
     @Test
     public void should_find_owners() throws Exception {
         // given
-        OwnerDto robert = new OwnerDto("Robert");
-        OwnerDto laure = new OwnerDto("Laure");
+        OwnerDto robert = new OwnerDto("Robert", 2L);
+        OwnerDto laure = new OwnerDto("Laure", 1L);
         when(ownersFacade.findOwners()).thenReturn(asList(robert, laure));
 
         // when and then

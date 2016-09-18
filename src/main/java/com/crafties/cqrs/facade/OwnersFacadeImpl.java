@@ -16,6 +16,9 @@ public class OwnersFacadeImpl implements OwnersFacade {
 
     @Override
     public List<OwnerDto> findOwners() {
-        return new JdbcTemplate(dataSource).query("SELECT name FROM owner", (rs, rowNum) -> new OwnerDto(rs.getString("name")));
+        return new JdbcTemplate(dataSource).query(
+                "SELECT name, (select count(*) from pet where o.id = owner_id) as numberOfPets FROM owner o",
+                (rs, rowNum) -> new OwnerDto(rs.getString("name"), rs.getLong("numberOfPets"))
+        );
     }
 }

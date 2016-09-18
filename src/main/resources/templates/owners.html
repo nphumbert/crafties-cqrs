@@ -11,11 +11,13 @@
             <thead>
             <tr>
                 <th>Name</th>
+                <th>Number of pets</th>
             </tr>
             </thead>
             <tbody th:each="owner : ${owners}">
             <tr>
                 <td th:text="${owner.name}">Robert</td>
+                <td th:text="${owner.numberOfPets}">1</td>
             </tr>
             </tbody>
         </table>
