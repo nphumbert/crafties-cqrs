@@ -1,19 +1,19 @@
 package com.crafties.cqrs.model.pet;
 
-import com.crafties.cqrs.model.owner.Owner;
+import com.crafties.cqrs.model.owner.OwnerId;
 
 public class Pet {
 
     private final PetId id;
     private final String name;
     private final PetType type;
-    private final Owner owner;
+    private final OwnerId ownerId;
 
-    public Pet(PetId petId, String name, PetType type, Owner owner) {
+    public Pet(PetId petId, String name, PetType type, OwnerId ownerId) {
         this.id = petId;
         this.name = name;
         this.type = type;
-        this.owner = owner;
+        this.ownerId = ownerId;
     }
 
     public PetId getId() {
@@ -28,8 +28,8 @@ public class Pet {
         return type;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public OwnerId getOwnerId() {
+        return ownerId;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Pet {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", type=" + type +
-                ", owner=" + owner +
+                ", ownerId=" + ownerId +
                 '}';
     }
 }
