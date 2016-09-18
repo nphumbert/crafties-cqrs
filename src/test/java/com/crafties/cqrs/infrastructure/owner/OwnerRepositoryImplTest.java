@@ -5,8 +5,6 @@ import com.crafties.cqrs.model.owner.OwnerId;
 import com.crafties.cqrs.model.owner.OwnerRepository;
 import org.junit.Test;
 
-import java.util.List;
-
 import static com.crafties.cqrs.fixture.DataSourceBuilder.aDataSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,7 +19,8 @@ public class OwnerRepositoryImplTest {
         Owner owner = ownerRepository.find(new OwnerId(1L));
 
         // then
-        assertThat(owner).isEqualTo(new Owner(new OwnerId(1L), "Robert"));
+        assertThat(owner.getId()).isEqualTo(new OwnerId(1L));
+        assertThat(owner.getName()).isEqualTo("Robert");
     }
 
 }

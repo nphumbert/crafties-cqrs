@@ -39,18 +39,13 @@ public class Pet {
 
         Pet pet = (Pet) o;
 
-        if (!id.equals(pet.id)) return false;
-        if (!name.equals(pet.name)) return false;
-        return type == pet.type;
+        return id.equals(pet.id);
 
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + type.hashCode();
-        return result;
+        return id.hashCode();
     }
 
     @Override

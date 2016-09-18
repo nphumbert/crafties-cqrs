@@ -25,16 +25,13 @@ public class Owner {
 
         Owner owner = (Owner) o;
 
-        if (!id.equals(owner.id)) return false;
-        return name.equals(owner.name);
+        return id.equals(owner.id);
 
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        return result;
+        return id.hashCode();
     }
 
     @Override
