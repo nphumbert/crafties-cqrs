@@ -6,8 +6,6 @@ import com.crafties.cqrs.model.owner.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class PetServiceImpl implements PetService {
 
@@ -18,11 +16,6 @@ public class PetServiceImpl implements PetService {
     public PetServiceImpl(PetRepository petRepository, OwnerRepository ownerRepository) {
         this.petRepository = petRepository;
         this.ownerRepository = ownerRepository;
-    }
-
-    @Override
-    public List<Pet> findPets() {
-        return petRepository.findPets();
     }
 
     @Override

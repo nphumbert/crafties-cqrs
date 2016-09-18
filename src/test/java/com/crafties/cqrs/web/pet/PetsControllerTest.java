@@ -1,10 +1,7 @@
 package com.crafties.cqrs.web.pet;
 
-import com.crafties.cqrs.model.owner.Owner;
-import com.crafties.cqrs.model.owner.OwnerId;
-import com.crafties.cqrs.model.pet.Pet;
-import com.crafties.cqrs.model.pet.PetId;
-import com.crafties.cqrs.model.pet.PetService;
+import com.crafties.cqrs.facade.pets.PetDto;
+import com.crafties.cqrs.facade.pets.PetsFacade;
 import com.crafties.cqrs.model.pet.PetType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,14 +27,14 @@ public class PetsControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private PetService petService;
+    private PetsFacade petsFacade;
 
     @Test
     public void should_display_pets() throws Exception {
         // given
-        Pet lafayette = new Pet(new PetId(1L), "lafayette", PetType.DOG, new Owner(new OwnerId(1L), "Robert"));
-        Pet berlioz = new Pet(new PetId(2L), "berlioz", PetType.CAT, new Owner(new OwnerId(2L), "Laure"));
-        when(petService.findPets()).thenReturn(Arrays.asList(lafayette, berlioz));
+        PetDto lafayette = new PetDto("lafayette", PetType.DOG, "Robert");
+        PetDto berlioz = new PetDto("berlioz", PetType.CAT, "Laure");
+        when(petsFacade.findPets()).thenReturn(Arrays.asList(lafayette, berlioz));
 
         // when and then
         mockMvc.perform(get("/pets"))

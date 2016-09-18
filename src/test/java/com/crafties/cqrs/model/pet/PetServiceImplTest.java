@@ -14,21 +14,6 @@ import static org.mockito.Mockito.*;
 public class PetServiceImplTest {
 
     @Test
-    public void should_find_pets() {
-        // given
-        PetRepository petRepository = mock(PetRepository.class);
-        when(petRepository.findPets()).thenReturn(asList(new Pet(new PetId(1L), "Norman", PetType.CAT, null), new Pet(new PetId(2L), "Sprit", PetType.DOG, null)));
-
-        PetService petService = new PetServiceImpl(petRepository, null);
-
-        // when
-        List<Pet> pets = petService.findPets();
-
-        // then
-        assertThat(pets).containsExactly(new Pet(new PetId(1L), "Norman", PetType.CAT, null), new Pet(new PetId(2L), "Sprit", PetType.DOG, null));
-    }
-
-    @Test
     public void should_create_pet() {
         // given
         OwnerRepository ownerRepository = mock(OwnerRepository.class);
