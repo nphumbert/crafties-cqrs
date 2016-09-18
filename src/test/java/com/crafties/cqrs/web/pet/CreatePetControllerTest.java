@@ -1,8 +1,8 @@
 package com.crafties.cqrs.web.pet;
 
-import com.crafties.cqrs.model.owner.Owner;
+import com.crafties.cqrs.facade.create_pet.CreatePetFacade;
+import com.crafties.cqrs.facade.create_pet.OwnerDto;
 import com.crafties.cqrs.model.owner.OwnerId;
-import com.crafties.cqrs.model.owner.OwnerService;
 import com.crafties.cqrs.model.pet.PetService;
 import com.crafties.cqrs.model.pet.PetType;
 import org.junit.Test;
@@ -23,8 +23,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(PetController.class)
-public class PetControllerTest {
+@WebMvcTest(CreatePetController.class)
+public class CreatePetControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -33,14 +33,14 @@ public class PetControllerTest {
     private PetService petService;
 
     @MockBean
-    private OwnerService ownerService;
+    private CreatePetFacade createPetFacade;
 
     @Test
     public void should_display_pet_creation_form() throws Exception {
         // given
-        Owner robert = new Owner(new OwnerId(1L), "Robert");
-        Owner laure = new Owner(new OwnerId(2L), "Laure");
-        when(ownerService.findOwners()).thenReturn(asList(robert, laure));
+        OwnerDto robert = new OwnerDto(new OwnerId(1L), "Robert");
+        OwnerDto laure = new OwnerDto(new OwnerId(2L), "Laure");
+        when(createPetFacade.findOwners()).thenReturn(asList(robert, laure));
 
         // when and then
         mockMvc.perform(get("/pets/new"))

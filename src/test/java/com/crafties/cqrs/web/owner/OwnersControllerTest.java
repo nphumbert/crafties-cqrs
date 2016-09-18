@@ -1,7 +1,7 @@
 package com.crafties.cqrs.web.owner;
 
-import com.crafties.cqrs.facade.OwnerDto;
-import com.crafties.cqrs.facade.OwnersFacade;
+import com.crafties.cqrs.facade.owners.OwnerDto;
+import com.crafties.cqrs.facade.owners.OwnersFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

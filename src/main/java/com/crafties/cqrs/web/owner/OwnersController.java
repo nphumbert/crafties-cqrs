@@ -1,7 +1,6 @@
 package com.crafties.cqrs.web.owner;
 
-import com.crafties.cqrs.facade.OwnersFacade;
-import com.crafties.cqrs.model.owner.OwnerService;
+import com.crafties.cqrs.facade.owners.OwnersFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

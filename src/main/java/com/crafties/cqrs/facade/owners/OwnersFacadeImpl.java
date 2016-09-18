@@ -1,4 +1,4 @@
-package com.crafties.cqrs.facade;
+package com.crafties.cqrs.facade.owners;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

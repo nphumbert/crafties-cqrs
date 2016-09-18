@@ -1,4 +1,4 @@
-package com.crafties.cqrs.facade;
+package com.crafties.cqrs.facade.owners;
 
 public class OwnerDto {
 

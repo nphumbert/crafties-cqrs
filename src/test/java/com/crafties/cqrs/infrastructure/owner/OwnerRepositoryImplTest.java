@@ -13,18 +13,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OwnerRepositoryImplTest {
 
     @Test
-    public void should_find_owners() {
-        // given
-        OwnerRepository ownerRepository = new OwnerRepositoryImpl(aDataSource().withDataScript("owner/insert-owners.sql").build());
-
-        // when
-        List<Owner> owners = ownerRepository.findOwners();
-
-        // then
-        assertThat(owners).containsExactly(new Owner(new OwnerId(1L), "Robert"), new Owner(new OwnerId(2L), "Laure"));
-    }
-
-    @Test
     public void should_find_owner() {
         // given
         OwnerRepository ownerRepository = new OwnerRepositoryImpl(aDataSource().withDataScript("owner/insert-owners.sql").build());

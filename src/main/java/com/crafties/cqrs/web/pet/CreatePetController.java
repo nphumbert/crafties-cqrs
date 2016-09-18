@@ -1,7 +1,7 @@
 package com.crafties.cqrs.web.pet;
 
+import com.crafties.cqrs.facade.create_pet.CreatePetFacade;
 import com.crafties.cqrs.model.owner.OwnerId;
-import com.crafties.cqrs.model.owner.OwnerService;
 import com.crafties.cqrs.model.pet.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-public class PetController {
+public class CreatePetController {
 
     private final PetService petService;
-    private final OwnerService ownerService;
+    private final CreatePetFacade createPetFacade;
 
     @Autowired
-    public PetController(PetService petService, OwnerService ownerService) {
+    public CreatePetController(PetService petService, CreatePetFacade createPetFacade) {
         this.petService = petService;
-        this.ownerService = ownerService;
+        this.createPetFacade = createPetFacade;
     }
 
     @RequestMapping(value = "/pets/new", method = RequestMethod.GET)
@@ -41,7 +41,7 @@ public class PetController {
     private String prepareModelAndView(@Valid CreatePetCommand command, Model model) {
         model.addAttribute("createPetCommand", command);
         model.addAttribute("navigationItem", "pets");
-        model.addAttribute("owners", ownerService.findOwners());
+        model.addAttribute("owners", createPetFacade.findOwners());
         return "pet";
     }
 }
