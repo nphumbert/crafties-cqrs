@@ -1,8 +1,7 @@
 package com.crafties.cqrs.web.owner;
 
-import com.crafties.cqrs.model.owner.Owner;
-import com.crafties.cqrs.model.owner.OwnerId;
-import com.crafties.cqrs.model.owner.OwnerService;
+import com.crafties.cqrs.facade.OwnerDto;
+import com.crafties.cqrs.facade.OwnersFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +25,14 @@ public class OwnersControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private OwnerService ownerService;
+    private OwnersFacade ownersFacade;
 
     @Test
     public void should_find_owners() throws Exception {
         // given
-        Owner robert = new Owner(new OwnerId(1L), "Robert");
-        Owner laure = new Owner(new OwnerId(2L), "Laure");
-        when(ownerService.findOwners()).thenReturn(asList(robert, laure));
+        OwnerDto robert = new OwnerDto("Robert");
+        OwnerDto laure = new OwnerDto("Laure");
+        when(ownersFacade.findOwners()).thenReturn(asList(robert, laure));
 
         // when and then
         mockMvc.perform(get("/owners"))
