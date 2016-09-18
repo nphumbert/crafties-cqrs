@@ -19,7 +19,11 @@ public class OwnerRepositoryImpl implements OwnerRepository {
 
     @Override
     public Owner find(OwnerId ownerId) {
-        return new JdbcTemplate(datasource).queryForObject("SELECT * FROM owner WHERE id = " + ownerId, (rs, rowNum) -> new Owner(new OwnerId(rs.getLong("id")), rs.getString("name")));
+        return new JdbcTemplate(datasource).queryForObject(
+                "SELECT id, name FROM owner WHERE id = ?",
+                (rs, rowNum) -> new Owner(new OwnerId(rs.getLong("id")), rs.getString("name")),
+                ownerId.toString()
+        );
     }
 
 }
